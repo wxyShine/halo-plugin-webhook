@@ -5,7 +5,7 @@ plugins {
     id "run.halo.plugin.devtools" version "0.0.7"
 }
 
-group 'run.halo.starter'
+group 'com.wxy97.webhook'
 sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
@@ -37,5 +37,5 @@ task buildFrontend(type: PnpmTask) {
 
 build {
     // build frontend before build
-    tasks.getByName('compileJava').dependsOn('buildFrontend')
+    tasks.getByName('compileJava')
 }

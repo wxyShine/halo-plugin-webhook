@@ -1,0 +1,19 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: plugin-webhook-settings
+spec:
+    forms:
+        - group: basic
+          label: 基本设置
+          formSchema:
+            - $formkit: checkbox
+              name: enableWebhook
+              label: 启用
+              help: 是否启用webhook
+              value: false
+            - $formkit: text
+              name: webhookUrl
+              label: webhook地址
+              help: 当产生事件时会向该地址推送消息
+              value:
