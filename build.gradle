@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    implementation platform('run.halo.tools.platform:plugin:2.6.0-SNAPSHOT')
+    implementation platform('run.halo.tools.platform:plugin:2.11.0-SNAPSHOT')
     compileOnly 'run.halo.app:api'
 
     testImplementation 'run.halo.app:api'
@@ -38,4 +38,9 @@ task buildFrontend(type: PnpmTask) {
 build {
     // build frontend before build
     tasks.getByName('compileJava')
+}
+
+halo {
+    version = '2.11.2'
+    debug = true
 }
