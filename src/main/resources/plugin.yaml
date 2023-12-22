@@ -1,8 +1,7 @@
 apiVersion: plugin.halo.run/v1alpha1
 kind: Plugin
 metadata:
-  # The name defines how the plugin is invoked,A unique name
-  name: webhookPlugin
+  name: wxyshine-webhook
 spec:
   enabled: true
   requires: ">=2.11.0"
@@ -10,13 +9,11 @@ spec:
     name: www.wxy97.com
     website: https://www.wxy97.com
   logo: logo.png
-  # 'homepage' usually links to the GitHub repository of the plugin
   homepage: https://github.com/halo-dev/plugin-starter
-  # 'displayName' explains what the plugin does in only a few words
   displayName: "Webhook"
   description: "为Halo提供webhook支持"
   settingName: plugin-webhook-settings
-  configMapName: plugin-webhook-settings-configMap
+  configMapName: plugin-webhook-configMap
   license:
     - name: "GPL-3.0"
       url: "https://github.com/halo-dev/plugin-starter/blob/main/LICENSE"
