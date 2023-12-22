@@ -1,5 +1,6 @@
 package com.wxy97.webhook;
 
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Component;
 import run.halo.app.plugin.BasePlugin;
 import run.halo.app.plugin.PluginContext;
@@ -8,6 +9,7 @@ import run.halo.app.plugin.PluginContext;
  * StartPlugin
  */
 @Component
+@EnableAsync
 public class WebhookPlugin extends BasePlugin {
 
     public WebhookPlugin(PluginContext pluginContext) {
