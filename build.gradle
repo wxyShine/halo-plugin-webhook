@@ -27,19 +27,6 @@ test {
     useJUnitPlatform()
 }
 
-node {
-    nodeProjectDir = file("${project.projectDir}/console")
-}
-
-task buildFrontend(type: PnpmTask) {
-    args = ['build']
-}
-
-build {
-    // build frontend before build
-    tasks.getByName('compileJava')
-}
-
 halo {
     version = '2.11.2'
     debug = true
