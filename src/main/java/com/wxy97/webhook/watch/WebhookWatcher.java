@@ -1,6 +1,5 @@
 package com.wxy97.webhook.watch;
 
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
@@ -24,11 +23,6 @@ public class WebhookWatcher implements Watcher, InitializingBean {
     @Override
     public void onAdd(Extension extension) {
         eventPublisher.publishEvent(ExtensionChangedEvent.onAdded(this, extension));
-    }
-
-    @Data
-    static class BasicSetting {
-        private String webhookUrl;
     }
 
     @Override
