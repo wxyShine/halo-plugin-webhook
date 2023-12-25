@@ -4,16 +4,16 @@ metadata:
   name: wxyshine-webhook
 spec:
   enabled: true
-  requires: ">=2.11.0"
+  requires: ">=2.11.2"
   author:
     name: www.wxy97.com
     website: https://www.wxy97.com
-  logo: logo.png
-  homepage: https://github.com/halo-dev/plugin-starter
+  logo: webhooklogo.webp
+  homepage: https://github.com/wxyShine/halo-plugin-webhook
   displayName: "Webhook"
   description: "为Halo提供webhook支持"
   settingName: plugin-webhook-settings
   configMapName: plugin-webhook-configMap
   license:
     - name: "GPL-3.0"
-      url: "https://github.com/halo-dev/plugin-starter/blob/main/LICENSE"
+      url: "https://github.com/wxyShine/halo-plugin-webhook/blob/main/LICENSE"

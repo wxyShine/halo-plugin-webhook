@@ -3,17 +3,25 @@ kind: Setting
 metadata:
   name: plugin-webhook-settings
 spec:
-    forms:
-        - group: basic
-          label: 基本设置
-          formSchema:
-            - $formkit: checkbox
-              name: enableWebhook
-              label: 启用
-              help: 是否启用webhook
+  forms:
+    - group: basic
+      label: 设置
+      formSchema:
+        - $formkit: radio
+          name: enableWebhook
+          id: enableWebhook
+          label: 是否启用webhook
+          value: false
+          options:
+            - label: 启用
+              value: true
+            - label: 关闭
               value: false
-            - $formkit: text
-              name: webhookUrl
-              label: webhook地址
-              help: 当产生事件时会向该地址推送消息
-              value:
+        - $formkit: url
+          if: $get(enableWebhook).value
+          name: webhookUrl
+          label: webhook地址
+          help: 当产生事件时会向该地址推送消息
+          placeholder: https://www.example.com...
+          validation: required|url
+          value:
