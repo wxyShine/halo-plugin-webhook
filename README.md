@@ -1,45 +1,43 @@
-# plugin-starter
+# halo-plugin-webhook
 
-Halo 2.0 插件开发快速开始模板。
+## 🎟️简介
 
-## 开发环境
+`halo-plugin-webhook` 是一个为 [Halo](https://halo.run/) （一款流行的博客系统）设计的Webhook插件。该插件允许用户在特定事件发生时（如文章发布、更新等）发送通知到指定的Webhook URL。
 
-插件开发的详细文档请查阅：<https://docs.halo.run/developer-guide/plugin/hello-world>
+![img01](images/2023-12-25_16-0759.png "plugin setting")
 
-```bash
-git clone git@github.com:halo-sigs/plugin-starter.git
+![img02](images/2023-12-25_16-0734.png "plugin data")
 
-# 或者当你 fork 之后
 
-git clone git@github.com:{your_github_id}/plugin-starter.git
-```
+> 具体数据可对照 https://github.com/wxyShine/halo-plugin-webhook/blob/main/src/main/java/com/wxy97/webhook/enums/WebhookEvent.java
 
-```bash
-cd path/to/plugin-starter
-```
+## ✨功能
 
-```bash
-# macOS / Linux
-./gradlew pnpmInstall
+- **事件触发**：当在Halo中发生特定事件（如创建、更新、删除文章）时，触发Webhook调用。
+- **灵活配置**：用户可以配置Webhook URL
+- **简单集成**：易于在现有的Halo博客系统中集成和使用。
 
-# Windows
-./gradlew.bat pnpmInstall
-```
+## 💻安装
+如何安装和配置`halo-plugin-webhook`插件。
 
-```bash
-# macOS / Linux
-./gradlew build
 
-# Windows
-./gradlew.bat build
-```
+1. 下载，目前提供以下下载方式：
+    GitHub Releases：访问 [Releases](https://github.com/wxyShine/halo-plugin-webhook/releases) 下载 Assets 中的 JAR 文件。
+安装，插件安装和更新方式可参考：https://docs.halo.run/user-guide/plugins。
+安装完成之后，记得启用插件并完成相关配置。
 
-修改 Halo 配置文件：
 
-```yaml
-halo:
-  plugin:
-    runtime-mode: development
-    fixedPluginPath:
-      - "/path/to/plugin-starter"
-```
+## 📒TODO
+- [ ] 更多事件支持...
+- [ ] 用户可以选择配置关注的事件类型。
+...
+
+
+## ✍️贡献
+如果您有兴趣为halo-plugin-webhook贡献代码或文档，欢迎Fork本仓库并提交[Pull Request](https://github.com/wxyShine/halo-plugin-webhook/pulls)。
+
+
+## ⛓️支持
+如果您在使用halo-plugin-webhook时遇到任何问题，可以通过以下方式寻求帮助：
+
+提交[GitHub Issue](https://github.com/wxyShine/halo-plugin-webhook/issues)。
