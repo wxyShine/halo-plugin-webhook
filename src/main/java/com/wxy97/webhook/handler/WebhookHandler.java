@@ -3,6 +3,9 @@ package com.wxy97.webhook.handler;
 import com.wxy97.webhook.strategy.CommentStrategy;
 import com.wxy97.webhook.strategy.ExtensionStrategy;
 import com.wxy97.webhook.strategy.PostStrategy;
+import com.wxy97.webhook.strategy.ReasonStrategy;
+import com.wxy97.webhook.strategy.ReplyStrategy;
+import com.wxy97.webhook.strategy.UnstructuredStrategy;
 import com.wxy97.webhook.watch.ExtensionChangedEvent;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -13,9 +16,14 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 import reactor.core.scheduler.Schedulers;
+import run.halo.app.core.extension.Counter;
 import run.halo.app.core.extension.content.Comment;
 import run.halo.app.core.extension.content.Post;
+import run.halo.app.core.extension.content.Reply;
+import run.halo.app.core.extension.notification.Reason;
 import run.halo.app.extension.Extension;
+import run.halo.app.extension.ReactiveExtensionClient;
+import run.halo.app.extension.Unstructured;
 import run.halo.app.plugin.SettingFetcher;
 
 /**
@@ -31,6 +39,13 @@ import run.halo.app.plugin.SettingFetcher;
 public class WebhookHandler implements ApplicationListener<ExtensionChangedEvent> {
 
     private final SettingFetcher settingFetcher;
+    private final ReactiveExtensionClient reactiveExtensionClient;
+
+    private final ReplyStrategy replyStrategy;
+    private final ReasonStrategy reasonStrategy;
+    private final PostStrategy postStrategy;
+    private final CommentStrategy commentStrategy;
+    private final UnstructuredStrategy unstructuredStrategy;
 
     @Override
     public void onApplicationEvent(@NonNull ExtensionChangedEvent event) {
@@ -54,7 +69,7 @@ public class WebhookHandler implements ApplicationListener<ExtensionChangedEvent
                     // 根据不同的类型选择不同的策略
                     ExtensionStrategy strategy = getStrategyForExtension(event.getExtension());
                     if (strategy != null) {
-                        strategy.process(event, webhookUrl);
+                        strategy.process(event, reactiveExtensionClient, webhookUrl);
                     }
                 }
             });
@@ -68,9 +83,17 @@ public class WebhookHandler implements ApplicationListener<ExtensionChangedEvent
 
     private ExtensionStrategy getStrategyForExtension(Extension extension) {
         if (extension instanceof Post) {
-            return PostStrategy.getInstance();
-        }else if (extension instanceof Comment){
-            return CommentStrategy.getInstance();
+            return postStrategy;
+        } else if (extension instanceof Comment) {
+            return commentStrategy;
+        } else if (extension instanceof Reply) {
+            return replyStrategy;
+        } else if (extension instanceof Unstructured) {
+            return unstructuredStrategy;
+        } else if (extension instanceof Counter) {
+            return unstructuredStrategy;
+        } else if (extension instanceof Reason) {
+            return reasonStrategy;
         }
         return null;
     }

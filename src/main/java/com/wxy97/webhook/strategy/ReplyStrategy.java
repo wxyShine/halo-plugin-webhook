@@ -1,11 +1,12 @@
 package com.wxy97.webhook.strategy;
 
 import com.wxy97.webhook.watch.ExtensionChangedEvent;
-import java.time.Instant;
-import java.util.Objects;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Mono;
 import run.halo.app.core.extension.content.Comment;
+import run.halo.app.core.extension.content.Reply;
+import run.halo.app.core.extension.notification.Reason;
 import run.halo.app.extension.Extension;
 import run.halo.app.extension.ReactiveExtensionClient;
 
@@ -16,7 +17,8 @@ import run.halo.app.extension.ReactiveExtensionClient;
  */
 @Component
 @RequiredArgsConstructor
-public class CommentStrategy implements ExtensionStrategy {
+public class ReplyStrategy implements ExtensionStrategy {
+
 
 
     @Override
@@ -25,21 +27,15 @@ public class CommentStrategy implements ExtensionStrategy {
 
         Extension extension = event.getExtension();
         ExtensionChangedEvent.EventType eventType = event.getEventType();
-        Comment comment = (Comment) extension;
+        Reply reply = (Reply) extension;
 
-        if (ExtensionChangedEvent.EventType.ADDED.equals(eventType)) {
-            // 发布
+        Mono<Comment> fetch =
+            reactiveExtensionClient.fetch(Comment.class, reply.getSpec().getCommentName());
+        fetch.subscribe(item -> {
+            System.out.println("item");
+            System.out.println(item);
+        });
 
-        }
-
-        if (ExtensionChangedEvent.EventType.UPDATED.equals(eventType)) {
-            Instant deletionTimestamp = comment.getMetadata().getDeletionTimestamp();
-            if (!Objects.isNull(deletionTimestamp)) {
-                // 删除
-
-
-            }
-        }
 
     }
 }

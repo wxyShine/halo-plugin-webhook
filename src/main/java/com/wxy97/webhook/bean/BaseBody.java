@@ -1,7 +1,6 @@
 package com.wxy97.webhook.bean;
 
-import com.wxy97.webhook.enums.WebhookEvent;
-import java.util.Calendar;
+import com.wxy97.webhook.enums.WebhookEventEnum;
 import lombok.Data;
 
 /**
@@ -10,14 +9,14 @@ import lombok.Data;
  * @email wxyrrcj@gmail.com
  */
 @Data
-public class BaseBody {
+public class BaseBody<T> {
 
-    private WebhookEvent eventType;
+    private WebhookEventEnum eventType;
 
     private String eventTypeName;
 
-    private Calendar timestamp;
+    private String hookTime;
 
-    private Object data;
+    private T data;
 
 }
