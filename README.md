@@ -6,10 +6,6 @@
 
 ![img01](images/2023-12-25_16-0759.png "plugin setting")
 
-![img02](images/2023-12-25_16-0734.png "plugin data")
-
-
-> 具体数据可对照 https://github.com/wxyShine/halo-plugin-webhook/blob/main/src/main/java/com/wxy97/webhook/enums/WebhookEvent.java
 
 ## ✨功能
 
@@ -23,13 +19,13 @@
 
 1. 下载，目前提供以下下载方式：
     GitHub Releases：访问 [Releases](https://github.com/wxyShine/halo-plugin-webhook/releases) 下载 Assets 中的 JAR 文件。
-安装，插件安装和更新方式可参考：https://docs.halo.run/user-guide/plugins。
+安装，插件安装和更新方式可参考：https://docs.halo.run/user-guide/plugins
 安装完成之后，记得启用插件并完成相关配置。
 
 
-## 📒TODO
-- [ ] 更多事件支持...
-- [ ] 用户可以选择配置关注的事件类型。
+## 📒[TODO](https://github.com/wxyShine/halo-plugin-webhook)
+- [ ] 更多事件支持。  
+- [ ] 用户可以选择配置关注的事件类型。   
 ...
 
 
