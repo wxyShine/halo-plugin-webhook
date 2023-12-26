@@ -18,8 +18,8 @@
 
 
 1. 下载，目前提供以下下载方式：
-    GitHub Releases：访问 [Releases](https://github.com/wxyShine/halo-plugin-webhook/releases) 下载 Assets 中的 JAR 文件。
-安装，插件安装和更新方式可参考：https://docs.halo.run/user-guide/plugins
+    GitHub Releases：访问 [Releases](https://github.com/wxyShine/halo-plugin-webhook/releases) 下载 Assets 中的 JAR 文件。  
+安装，插件安装和更新方式可参考：https://docs.halo.run/user-guide/plugins  
 安装完成之后，记得启用插件并完成相关配置。
 
 
