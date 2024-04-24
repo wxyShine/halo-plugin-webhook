@@ -1,5 +1,7 @@
 # halo-plugin-webhook
 
+# 请使用最新版本https://github.com/wxyShine/plugin-webhook，该版本已停止开发
+
 ## 🎟️简介
 
 `halo-plugin-webhook` 是一个为 [Halo](https://halo.run/) （一款流行的博客系统）设计的Webhook插件。该插件允许用户在特定事件发生时（如文章发布、更新等）发送通知到指定的Webhook URL。
