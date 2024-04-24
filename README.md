@@ -1,6 +1,6 @@
 # halo-plugin-webhook
 
-# 请使用最新版本https://github.com/wxyShine/plugin-webhook，该版本已停止开发
+# 请使用[最新版本](https://github.com/wxyShine/plugin-webhook) 该版本已停止开发
 
 ## 🎟️简介
 
